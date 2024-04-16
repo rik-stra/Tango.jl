@@ -1,5 +1,5 @@
 export plot_tangent
-
+using Plots
 """
     plot_tangent(f,x_0,ϵ=1e-7)
 Plots the function `f` and its tangent line at `x_0`.
