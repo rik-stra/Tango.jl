@@ -1,4 +1,5 @@
 export numderiv
+export get_tangent
 
 """
     numderiv(f,x::Float64,ϵ=1e-7::Float64)
@@ -21,4 +22,12 @@ function numderiv(f,x::Float64,ϵ=1e-7::Float64)
     return df/ϵ
 end
 
+"""
+    get_tangent(f,x_0,ϵ=1e-7)
 
+Returns a function that represents the tangent line to the function `f` at `x_0`.
+"""
+function get_tangent(f,x_0,ϵ=1e-7)
+    slope = numderiv(f,x_0,ϵ)
+    return x -> f(x_0) + slope*(x-x_0)
+end
